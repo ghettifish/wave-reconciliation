@@ -11,11 +11,9 @@ const App = () => (
     <Router>
         <div>
             <Link to="/">Home</Link>
-            <Link to="/accounting">Accounting</Link>
-            <Link to="/algorithms">Algorithms</Link>
         </div>
         <Switch>
-            <Route path="/" exact component={Index}/>
+            <Route path="/" exact component={Accounting}/>
             <Route path="/accounting" component={Accounting}/>
             <Route path="/algorithms" component={Algorithms}/>
         </Switch>

@@ -10,7 +10,7 @@ class Calculator extends React.Component {
     total: '',
     kicks: []
     };
-getWavePrice = (number: number) => (number - (number *  MULTIPLIER) - 0.3);
+  getWavePrice = (number: number) => (number - (number *  MULTIPLIER) - 0.3);
 
   calculateWave = (number: string) => 
     number.split(" ")
@@ -25,7 +25,7 @@ getWavePrice = (number: number) => (number - (number *  MULTIPLIER) - 0.3);
     this.setState({
       numbers: event.target.value,
       kicks: event.target.value.split(" "),
-      total
+      total: total === "NaN" ? "Please enter number" : total
     })
   }
   render() {
@@ -39,9 +39,9 @@ getWavePrice = (number: number) => (number - (number *  MULTIPLIER) - 0.3);
         <form>
           <input 
           type="text"
-          onChange={this.handleChange}
+          onChange={event => this.handleChange(event)}
           value={this.state.numbers}
-          style={{fontSize: 42}}
+          style={inputStyle}
           ></input>
         </form>
       </>
@@ -53,14 +53,20 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h3>Nic's super cool calculator</h3>
-        <p>
-         <Calculator />
-        </p>
-        
+        <h3>Wave Apps Reconciliation Helper</h3>
+        <p> Enter any numbers separated by spaces to get the total that should have been deposited in your bank. </p>
+        <Calculator />        
       </header>
     </div>
   );
 }
 
 export default App;
+
+const inputStyle = {
+  background: "none",
+  border: "none",
+  borderBottom: "2px solid #fff",
+  fontSize: 42,
+  color: "#7ea9ff"
+}
