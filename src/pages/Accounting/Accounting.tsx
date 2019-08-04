@@ -23,7 +23,7 @@ class Calculator extends React.Component<{}, IState> {
     kicks: []
   };
   
-  getWaveFee = (invoiceTotal: number ) => (invoiceTotal * MULTIPLIER) - 0.3;
+  getWaveFee = (invoiceTotal: number ) => ((invoiceTotal * MULTIPLIER) + .3);
 
   getAmountDeposited = (invoiceTotal: number) => (invoiceTotal - this.getWaveFee(invoiceTotal));
 
